@@ -1,0 +1,25 @@
+.form {
+    width: 650px;
+    padding-left: 130px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    cursor: text;
+    font-size: 20px;
+    transition: color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.name {
+    margin-right: 20px;
+    text-align: left;;
+    width: 70px;
+}
+
+.input {
+    width: 430px;
+    height: 40px; 
+    border: none; 
+}
