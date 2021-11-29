@@ -1,10 +1,9 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Suspense } from 'react';
-// import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
-import Loader from 'react-loader-spinner';
 import AppBar from '../AppBar/AppBar';
+import Loader from '../../helpers/Loader/Loader';
 
 //////edit
 import HomePage from '../../pages/HomePage/HomePage';
@@ -34,7 +33,7 @@ export default function App() {
   return (
     <div className="App">
       <AppBar />
-      <Suspense fallbak={<Loader />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Phonebook" element={<Phonebook />} />
