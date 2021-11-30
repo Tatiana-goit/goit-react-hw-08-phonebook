@@ -1,0 +1,22 @@
+.list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+  }
+  
+  .link {
+    color: floralwhite;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* --------dont-work ---------------*/
+  
+  .activeLink {
+    text-decoration: solid;
+    color: rgb(55, 56, 51);
+    border-bottom: 2px solid black;
+    cursor: auto;
+  }
+  
