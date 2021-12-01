@@ -5,6 +5,7 @@ import Filter from '../../components/Filter/Filter';
 import { RiContactsBook2Fill, RiContactsFill } from 'react-icons/ri';
 
 export default function Phonebook() {
+  console.log('1111111111111111111111');
   return (
     <Container>
       <h1>

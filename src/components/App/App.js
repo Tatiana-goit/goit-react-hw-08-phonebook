@@ -5,18 +5,20 @@ import { Suspense, lazy } from 'react';
 import AppBar from '../AppBar/AppBar';
 import Loader from '../../helpers/Loader/Loader';
 import PublicRoute from '../../routes/PublicRoute';
-import PrivataRoute from '../../routes/PrivataRoute';
+import PrivateRoute from '../../routes/PrivataRoute';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
+
+import Phonebook from '../../pages/Phonebook/Phonebook'
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage.js' /* webpackChunkName: "homePage" */),
 );
 
-const Phonebook = lazy(() => {
-  import('../../pages/Phonebook/Phonebook'); /* webpackChunkName: "phonebook" */
-});
+// const Phonebook = lazy(() => {
+//   import('../../pages/Phonebook/Phonebook'); /* webpackChunkName: "phonebook" */
+// });
 
 const Login = lazy(() =>
   import('../../pages/Login/Login' /* webpackChunkName: "login" */),
@@ -49,7 +51,7 @@ export default function App() {
           />
           <Route
             path="/contacts"
-            element={<PrivataRoute isAuth={isAuth} component={Phonebook} />}
+            element={<PrivateRoute isAuth={isAuth} component={Phonebook} />}
           />
           <Route
             path="/login"

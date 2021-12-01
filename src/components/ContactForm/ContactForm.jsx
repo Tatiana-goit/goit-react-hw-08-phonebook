@@ -27,6 +27,8 @@ export default function Form() {
   const handleSubmit = e => {
     e.preventDefault();
 
+    console.log(contacts);
+
     const comparableElement = contacts.some(
       element => element.name.toLowerCase() === name.toLowerCase(),
     );
