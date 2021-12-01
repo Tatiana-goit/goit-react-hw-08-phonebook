@@ -1,42 +1,31 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import s from './Navigation.module.css';
-import { useDispatch } from 'react-redux';
-import {logout} from '../../redux/auth/auth-operation'
+import { getIsAuth } from '../../redux/auth/auth-selector';
 
 export default function Navigation() {
-  const dispatch = useDispatch()
-  const handleLogout = () => {
-    console.log('1111111');
-    dispatch(logout())
-  }
+  const isAuth = useSelector(getIsAuth);
+
+  // const location = useLocation();
+
   return (
     <nav className={s.navigation}>
-      <ul className={s.list}>
-        <li>
-          <NavLink to="/" className={s.link} activeclassname={s.activeLink}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contacts" className={s.link} activeclassname={s.activeLink} >
-            Phonebook
-          </NavLink>
-        </li>
-        {/* <li>
-          <NavLink to="/registration" className={s.link} activeclassname={s.activeLink}>
-            Sign up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" className={s.link} activeclassname={s.activeLink}>
-            Log in
-          </NavLink>
-        </li> */}
-        <li>
-          <button type='button' onClick={handleLogout}>Log Out</button>
-        </li>
+      {/* <ul className={s.list}> */}
+      {isAuth ? (
+        <NavLink
+          to="/contacts"
+          className={s.link}
+          activeclassname={s.activeLink}
+        >
+          Contacts
+        </NavLink>
+      ) : (
+        <NavLink to="/" className={s.link} activeclassname={s.activeLink}>
+          Home
+        </NavLink>
+      )}
 
-      </ul>
+  
     </nav>
   );
 }

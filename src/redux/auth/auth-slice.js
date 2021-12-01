@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register,login, currentUser,logout } from './auth-operation';
+import { register, login, currentUser, logout } from './auth-operation';
 
 const initialState = {
   user: { name: '', email: '' },
@@ -21,7 +21,7 @@ const authSlice = createSlice({
       isLoading: false,
       isAuth: true,
     }),
-    [register.pending]: (state) => ({
+    [register.pending]: state => ({
       ...state,
       isLoading: true,
     }),
@@ -29,61 +29,58 @@ const authSlice = createSlice({
       ...state,
       error: action.payload,
       isLoading: false,
-    //   isAuth: false,
     }),
 
     [login.fulfilled]: (state, action) => ({
-        ...state,
-        user: action.payload.user,
-        token: action.payload.token,
-        isLoading: false,
-        isAuth: true,
-      }),
-      [login.pending]: (state) => ({
-        ...state,
-        isLoading: true,
-      }),
-      [login.rejected]: (state, action) => ({
-        ...state,
-        error: action.payload,
-        isLoading: false,
-      //   isAuth: false,
-      }),
+      ...state,
+      user: action.payload.user,
+      token: action.payload.token,
+      isLoading: false,
+      isAuth: true,
+    }),
+    [login.pending]: state => ({
+      ...state,
+      isLoading: true,
+    }),
+    [login.rejected]: (state, action) => ({
+      ...state,
+      error: action.payload,
+      isLoading: false,
+    }),
 
-      [currentUser.fulfilled]: (state, action) => ({
-        ...state,
-        user: action.payload,
-        isLoading: false,
-        isAuth: true,
-      }),
-      [currentUser.pending]: (state) => ({
-        ...state,
-        isLoading: true,
-      }),
-      [currentUser.rejected]: (state, action) => ({
-        ...state,
-        error: action.payload,
-        isLoading: false,
-        isAuth: false,
-      }),
+    [currentUser.fulfilled]: (state, action) => ({
+      ...state,
+      user: action.payload,
+      isLoading: false,
+      isAuth: true,
+    }),
+    [currentUser.pending]: state => ({
+      ...state,
+      isLoading: true,
+    }),
+    [currentUser.rejected]: (state, action) => ({
+      ...state,
+      error: action.payload,
+      isLoading: false,
+      isAuth: false,
+    }),
 
-      [logout.fulfilled]: (state, action) => ({
-        ...state,
-        user:  { name: '', email: '' },
-        token: '',
-        isLoading: false,
-        isAuth: false,
-      }),
-      [logout.pending]: (state) => ({
-        ...state,
-        isLoading: true,
-      }),
-      [logout.rejected]: (state, action) => ({
-        ...state,
-        error: action.payload,
-        isLoading: false,
-      //   isAuth: false,
-      }),
+    [logout.fulfilled]: state => ({
+      ...state,
+      user: { name: '', email: '' },
+      token: '',
+      isLoading: false,
+      isAuth: false,
+    }),
+    [logout.pending]: state => ({
+      ...state,
+      isLoading: true,
+    }),
+    [logout.rejected]: (state, action) => ({
+      ...state,
+      error: action.payload,
+      isLoading: false,
+    }),
   },
 });
 

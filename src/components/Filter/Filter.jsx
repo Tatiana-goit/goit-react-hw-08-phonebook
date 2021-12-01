@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../../redux/phone-selector';
-import { filtered } from '../../redux/slices/filter';
+import { getFilter } from '../../redux/contacts/contacts-selector';
+import { filtered } from '../../redux/contacts/filter-slice';
 import s from './Filter.module.css';
 
 export default function Filter() {

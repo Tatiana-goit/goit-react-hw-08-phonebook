@@ -5,59 +5,65 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 //// сделать end-point
 
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
 export const register = createAsyncThunk(
   'users/register',
-  async (user, { rejectWithValue  }) => {
+  async (user, { rejectWithValue }) => {
     try {
       const result = await axios.post('/users/signup', user);
-      //   console.log('result', result.data);
+      token.set(result.data.token);
       return result.data;
     } catch (error) {
-        rejectWithValue ({ error: error.message });
+      rejectWithValue(error.message);
     }
   },
 );
 
 export const login = createAsyncThunk(
   'users/login',
-  async (user, { rejectWithValue  }) => {
+  async (user, { rejectWithValue }) => {
     try {
       const result = await axios.post('/users/login', user);
-      // console.log('result', result.data);
+      token.set(result.data.token);
       return result.data;
     } catch (error) {
-        rejectWithValue ({ error: error.message });
+      rejectWithValue(error.message);
     }
   },
 );
 
 export const currentUser = createAsyncThunk(
   'users/currentUser',
-  async (_, { rejectWithValue  ,getState} ) => {
+  async (_, { rejectWithValue, getState }) => {
     const state = getState();
     const token = state.auth.token;
-    // console.log('store',state.auth.token);
-    if (!token) return;
+    if (!token) return rejectWithValue();
+    token.set(token);
     try {
       const result = await axios.get('/users/current');
-    //   console.log('result', result);
       return result;
     } catch (error) {
-        rejectWithValue ({ error: error.message });
+      rejectWithValue(error.message);
     }
   },
 );
 
 export const logout = createAsyncThunk(
-    'users/logout',
-    async (_, { rejectWithValue } ) => {
-
-      try {
-        const result = await axios.post('/users/logout');
-        console.log('result', result);
-        return result;
-      } catch (error) {
-        rejectWithValue ({ error: error.message });
-      }
-    },
-  );
+  'users/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post('/users/logout');
+      token.unset();
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
+  },
+);

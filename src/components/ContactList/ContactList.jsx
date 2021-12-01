@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFiltredContacts } from '../../redux/phone-selector';
-import { fetchContacts, deleteContact } from '../../redux/phone-operations';
+import { getFiltredContacts } from '../../redux/contacts/contacts-selector';
+import { fetchContacts, deleteContact } from '../../redux/contacts/contacts-operations';
 import s from './ContactList.module.css';
 
 export default function ContactList() {
