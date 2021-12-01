@@ -1,0 +1,18 @@
+.navigation {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.title {
+  color: aliceblue;
+  margin-right: 40px;
+}
+
+.addButton {
+  height: 36px;
+  margin-right: 40px;
+}
+.addButton:hover {
+  box-shadow: rgba(250, 247, 247, 0.8) 0 0 5px 2px;
+}

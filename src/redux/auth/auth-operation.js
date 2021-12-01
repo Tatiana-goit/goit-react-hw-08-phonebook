@@ -20,6 +20,7 @@ export const register = createAsyncThunk(
     try {
       const result = await axios.post('/users/signup', user);
       token.set(result.data.token);
+      console.log(result.data);
       return result.data;
     } catch (error) {
       rejectWithValue(error.message);
@@ -47,6 +48,7 @@ export const currentUser = createAsyncThunk(
     const token = state.auth.token;
     if (!token) return rejectWithValue();
     token.set(token);
+    console.log('!!!!!!!');
     try {
       const result = await axios.get('/users/current');
       return result;

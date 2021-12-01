@@ -3,11 +3,11 @@ import { fetchContacts, addContact, deleteContact } from './contacts-operations'
 
 const contactSlice = createSlice({
   name: 'contacts',
-  initialState: { contactItems: [], loading: false, error: null },
+  initialState: { contactItem: [], loading: false, error: null },
   extraReducers: {
     [fetchContacts.fulfilled]: (state, action) => ({
       ...state,
-      contactItems: action.payload,
+      contactItem: action.payload,
       loading: false,
       error: null,
     }),
@@ -24,7 +24,7 @@ const contactSlice = createSlice({
 
     [addContact.fulfilled]: (state, action) => ({
       ...state,
-      contactItems: [...state.contactItems, action.payload],
+      contactItem: [...state.contactItem, action.payload],
       loading: false,
       error: null,
     }),
@@ -41,7 +41,7 @@ const contactSlice = createSlice({
 
     [deleteContact.fulfilled]: (state, action) => ({
       ...state,
-      contactItems: state.contactItems.filter(
+      contactItem: state.contactItem.filter(
         ({ id }) => id !== action.payload,
       ),
       loading: false,

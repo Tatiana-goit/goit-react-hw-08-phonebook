@@ -5,15 +5,17 @@ import { fetchContacts, deleteContact } from '../../redux/contacts/contacts-oper
 import s from './ContactList.module.css';
 
 export default function ContactList() {
-  // const contacts = useSelector(getFiltredContacts);
-    const contacts = useSelector(getContacts);
+  const contacts = useSelector(getFiltredContacts);
+    // const contacts = useSelector(getContacts);
+    console.log(contacts);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-console.log(contacts);
+
+
   return (
     // <></>
     <ul className={s.list}>

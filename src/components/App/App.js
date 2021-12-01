@@ -6,11 +6,12 @@ import AppBar from '../AppBar/AppBar';
 import Loader from '../../helpers/Loader/Loader';
 import PublicRoute from '../../routes/PublicRoute';
 import PrivateRoute from '../../routes/PrivataRoute';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getIsAuth } from '../../redux/auth/auth-selector';
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
 
-import Phonebook from '../../pages/Phonebook/Phonebook'
+import Phonebook from '../../pages/Phonebook/Phonebook';
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage.js' /* webpackChunkName: "homePage" */),
@@ -31,14 +32,13 @@ const Registration = lazy(() =>
   ),
 );
 
-const isAuth = false;
-
 export default function App() {
   const dispatch = useDispatch();
+  const isAuth = useSelector(getIsAuth);
 
   useEffect(() => {
     dispatch(currentUser());
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -46,6 +46,7 @@ export default function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route
+            exact
             path="/"
             element={<PublicRoute isAuth={isAuth} component={HomePage} />}
           />

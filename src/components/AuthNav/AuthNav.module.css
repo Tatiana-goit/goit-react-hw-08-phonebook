@@ -1,14 +1,15 @@
-.list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-   
-  }
+.navigation {
+  height: 50px;
+  padding: 10px 0;
+  /* text-align: end; */
+  margin-left: auto;
+}
   
   .link {
     color: floralwhite;
     text-decoration: none;
     font-size: 20px;
+    margin-right: 40px;
   }
   
   /* --------dont-work ---------------*/

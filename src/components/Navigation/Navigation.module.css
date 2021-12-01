@@ -1,13 +1,8 @@
 .navigation {
   height: 50px;
-  padding: 10px 0;
-}
-
-.list {
+  padding: 10px 0 10px 40px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
- 
 }
 
 .link {

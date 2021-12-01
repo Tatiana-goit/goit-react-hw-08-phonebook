@@ -10,7 +10,6 @@ export default function Navigation() {
 
   return (
     <nav className={s.navigation}>
-      {/* <ul className={s.list}> */}
       {isAuth ? (
         <NavLink
           to="/contacts"

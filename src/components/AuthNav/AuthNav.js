@@ -3,7 +3,7 @@ import s from './AuthNav.module.css';
 
 export default function AuthNav() {
   return (
-    <nav>
+    <nav className={s.navigation}>
       {/* <ul className={s.list}> */}
 
       <NavLink

@@ -10,6 +10,7 @@ export default function Form() {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
+
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
@@ -26,9 +27,6 @@ export default function Form() {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    console.log(contacts);
-
     const comparableElement = contacts.some(
       element => element.name.toLowerCase() === name.toLowerCase(),
     );
