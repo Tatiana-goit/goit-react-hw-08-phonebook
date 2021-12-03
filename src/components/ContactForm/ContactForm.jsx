@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { RiContactsBook2Fill } from 'react-icons/ri';
+import { Notify } from '../../utils/notifications';
+
 import { addContact } from '../../redux/contacts/contacts-operations';
 import { getContacts } from '../../redux/contacts/contacts-selector';
 import s from './ContactForm.module.css';
@@ -9,7 +12,6 @@ export default function Form() {
   const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -32,8 +34,21 @@ export default function Form() {
     );
     if (comparableElement) {
       resetForm();
-      return alert(`${name} is already in the directory`);
+      return Notify.error(`${name.toUpperCase()}\nis already in contacts!`);
     }
+
+    const includedNumber = contacts.find(
+      (contact) =>
+        contact.number.replace(/[^0-9]/g, "") === number.replace(/[^0-9]/g, "")
+    );
+
+
+    if (includedNumber) {
+      resetForm();
+      return Notify.error(`This number is already in contacts as\n${includedNumber.name.toUpperCase()}`);
+    }
+
+
     dispatch(addContact({ name, number }));
     resetForm();
   };
@@ -46,6 +61,11 @@ export default function Form() {
   return (
     <div>
       <form className={s.form} onSubmit={handleSubmit}>
+        <h1 className={s.title}>
+          {' '}
+          <RiContactsBook2Fill /> Phonebook
+        </h1>
+
         <label className={s.label}>
           <span className={s.name}>Name</span>
           <input

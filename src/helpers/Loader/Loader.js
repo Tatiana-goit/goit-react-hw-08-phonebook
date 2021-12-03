@@ -6,7 +6,7 @@ export default function LoaderSpinner() {
     <div className={s.Loader}>
       <Loader
         type="Circles"
-        color="#9aa0a1"
+        color="#3c3c3c"
         height={150}
         width={150}
         timeout={3000}

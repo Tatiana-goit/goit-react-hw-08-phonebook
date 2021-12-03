@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserName } from '../../redux/auth/auth-selector';
 import { logout } from '../../redux/auth/auth-operation';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import s from './UserMenu.module.css';
 
 export default function UserMenu() {
@@ -18,7 +19,7 @@ export default function UserMenu() {
         onClick={handleLogout}
         className={(s.button, s.addButton)}
       >
-        --
+        <ExitToAppIcon />
       </button>
     </nav>
   );

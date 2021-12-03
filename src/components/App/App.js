@@ -10,7 +10,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getIsAuth } from '../../redux/auth/auth-selector';
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
-
 import Phonebook from '../../pages/Phonebook/Phonebook';
 
 const HomePage = lazy(() =>

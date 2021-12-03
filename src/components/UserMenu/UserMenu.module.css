@@ -1,11 +1,11 @@
 .navigation {
   display: flex;
-  margin-left: auto;
   align-items: center;
+  margin-left: auto;
 }
 
 .title {
-  color: aliceblue;
+  color: var(--color-bg);
   margin-right: 40px;
 }
 

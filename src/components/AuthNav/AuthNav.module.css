@@ -1,23 +1,23 @@
 .navigation {
   height: 50px;
   padding: 10px 0;
-  /* text-align: end; */
   margin-left: auto;
 }
-  
-  .link {
-    color: floralwhite;
-    text-decoration: none;
-    font-size: 20px;
-    margin-right: 40px;
-  }
-  
-  /* --------dont-work ---------------*/
-  
-  .activeLink {
-    text-decoration: solid;
-    color: rgb(55, 56, 51);
-    border-bottom: 2px solid black;
-    cursor: auto;
-  }
-  
+
+.link {
+  color: var(--color-bg);
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 40px;
+
+}
+
+/* --------dont-work ---------------*/
+
+.activeLink {
+  text-decoration: underline;
+  color: var(--color-accent);
+  /* border-bottom: 2px solid black; */
+  cursor: auto;
+}
+

@@ -1,0 +1,28 @@
+.form {
+  width: 350px;
+  padding: 30px;
+  margin: 30px auto 0;
+  background-color: var(--color-bg);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px 3px;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: var(--color-dark);
+}
+
+.input {
+  width: 240px;
+  margin-bottom: 20px;
+}
+
+.text {
+  margin-top: 20px;
+  color: var(--color-dark);
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--color-accent);
+}

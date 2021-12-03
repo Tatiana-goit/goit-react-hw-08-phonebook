@@ -6,8 +6,6 @@ import { getIsAuth } from '../../redux/auth/auth-selector';
 export default function Navigation() {
   const isAuth = useSelector(getIsAuth);
 
-  // const location = useLocation();
-
   return (
     <nav className={s.navigation}>
       {isAuth ? (
