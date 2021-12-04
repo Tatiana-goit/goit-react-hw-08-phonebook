@@ -1,20 +1,18 @@
 .navigation {
   display: flex;
   align-items: center;
-  height: 50px;
   padding: 10px 0 10px 40px;
 }
 
 .link {
+  text-decoration: none;
+  color: var(--color-bg);
+  font-size: 20px;
+}
+
+.activeLink {
   color: var(--color-accent);
   font-size: 20px;
   text-decoration: underline;
   cursor: auto;
-}
-
-
-.activeLink {
-  text-decoration: none;
-  color: var(--color-bg);
-  font-size: 20px;
 }

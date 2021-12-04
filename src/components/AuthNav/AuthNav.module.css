@@ -1,5 +1,5 @@
 .navigation {
-  height: 50px;
+  /* height: 30px; */
   padding: 10px 0;
   margin-left: auto;
 }
@@ -7,14 +7,15 @@
 .link {
   margin-right: 40px;
   font-size: 20px;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.activeLink{
+  margin-right: 40px;
+  font-size: 20px;
   color: var(--color-accent);
   text-decoration: underline;
   cursor: auto;
 }
 
-.activeLink {
-  margin-right: 40px;
-  font-size: 20px;
-  color: var(--color-bg);
-  text-decoration: none;
-}

@@ -45,15 +45,17 @@ export default function RegistrationForm() {
         <h2 className={s.title}>Sign up</h2>
         <input
           className={s.input}
-          text="text"
+          type="text"
           name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов"
           value={name}
           placeholder="name"
           onChange={handleChange}
         />
         <input
           className={s.input}
-          text="mail"
+          type="email"
           name="email"
           value={email}
           placeholder="email"
@@ -61,15 +63,17 @@ export default function RegistrationForm() {
         />
         <input
           className={s.input}
-          text="password"
+          type="password"
           name="password"
           value={password}
+          pattern="[0-9]{8,}"
+          title="Пароль должен состоять минимум из 8 цифр"
           placeholder="password"
           onChange={handleChange}
         />
-         <button type="submit">log in</button>
+        <button type="submit">log in</button>
         <p className={s.text}>
-          Already have an account? 
+          Already have an account?
           <NavLink to="/login" className={s.link}>
             {' '}
             log in{' '}

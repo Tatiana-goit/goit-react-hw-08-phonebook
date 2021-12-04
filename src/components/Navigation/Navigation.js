@@ -12,12 +12,12 @@ export default function Navigation() {
         <NavLink
           to="/contacts"
           className={s.link}
-          activeclassname={s.activeLink}
+          // activeclassname={s.activeLink}
         >
           Contacts
         </NavLink>
       ) : (
-        <NavLink to="/" className={({ isActive }) => (isActive ? s.link : s.activeLink)}>
+        <NavLink to="/" className={({ isActive }) => (isActive ? s.activeLink : s.link)}>
           Home
         </NavLink>
       )}

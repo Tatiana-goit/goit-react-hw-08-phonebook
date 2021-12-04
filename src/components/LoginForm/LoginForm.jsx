@@ -40,7 +40,7 @@ export default function LoginForm() {
         <h2 className={s.title}>Login</h2>
         <input
           className={s.input}
-          text="mail"
+          type="email"
           name="email"
           value={email}
           placeholder="email"
@@ -48,9 +48,11 @@ export default function LoginForm() {
         />
         <input
           className={s.input}
-          text="password"
+          type="password"
           name="password"
           value={password}
+          pattern="[0-9]{8,}"
+          title="Пароль должен состоять минимум из 8 цифр"
           placeholder="password"
           onChange={handleChange}
         />
