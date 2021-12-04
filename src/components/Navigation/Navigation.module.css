@@ -6,16 +6,15 @@
 }
 
 .link {
-  color: var(--color-bg);
-  text-decoration: none;
+  color: var(--color-accent);
   font-size: 20px;
+  text-decoration: underline;
+  cursor: auto;
 }
 
-/* --------dont-work ---------------*/
 
 .activeLink {
-  text-decoration: solid;
-  color: var(--color-dark);
-  border-bottom: 2px solid black;
-  cursor: auto;
+  text-decoration: none;
+  color: var(--color-bg);
+  font-size: 20px;
 }

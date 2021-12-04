@@ -11,21 +11,15 @@ export default function AuthNav() {
     <nav className={s.navigation}>
       <NavLink
         to="/registration"
-        className={s.link}
-        // activeClassName={s.activeLink}
-        // activeStyle={styles.activeLink}
-        // activeStyle={{ color: '#ddd' }}
-
+        className={({ isActive }) => (isActive ? s.link : s.activeLink)}
       >
         Sign up
       </NavLink>
 
-      <NavLink to="/login" className={s.link}
-      //  activeClassName={s.activeLink}
-      // activeStyle={styles.activeLink}
-      // activeStyle={{ backgroundColor: '#88e' }}
+      <NavLink
+        to="/login"
+        className={({ isActive }) => (isActive ? s.link : s.activeLink)}
       >
-
         Log in
       </NavLink>
     </nav>
