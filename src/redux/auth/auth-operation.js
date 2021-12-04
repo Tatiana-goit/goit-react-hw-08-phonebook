@@ -21,9 +21,9 @@ export const login = createAsyncThunk(
     try {
       const result = await contactsApi.login(user);
       Notify.success(
-        'Login successful!\n',
+        "Login successful!\n",
         `Welcome back, ${result.user.name}!`,
-        0,
+        3000
       );
       return result;
     } catch (error) {

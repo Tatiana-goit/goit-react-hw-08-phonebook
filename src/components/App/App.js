@@ -10,15 +10,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getIsAuth } from '../../redux/auth/auth-selector';
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
-import Phonebook from '../../pages/Phonebook/Phonebook';
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage.js' /* webpackChunkName: "homePage" */),
 );
 
-// const Phonebook = lazy(() => {
-//   import('../../pages/Phonebook/Phonebook'); /* webpackChunkName: "phonebook" */
-// });
+const Phonebook = lazy(() => 
+  import('../../pages/Phonebook/Phonebook' /* webpackChunkName: "phonebook" */),
+);
 
 const Login = lazy(() =>
   import('../../pages/Login/Login' /* webpackChunkName: "login" */),
