@@ -12,7 +12,6 @@ export default function Navigation() {
         <NavLink
           to="/contacts"
           className={s.link}
-          // activeclassname={s.activeLink}
         >
           Contacts
         </NavLink>
