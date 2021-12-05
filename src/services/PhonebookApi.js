@@ -37,9 +37,9 @@ export async function login(user) {
   return result.data;
 }
 
-export async function currentUser() {
+export async function currentUser(userToken) {
+  token.set(userToken);
   const result = await axios.get('/users/current');
-  token.set(result.data.token);
   return result.data;
 }
 

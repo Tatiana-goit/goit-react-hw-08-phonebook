@@ -38,13 +38,13 @@ export const currentUser = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     const state = getState();
     const token = state.auth.token;
-    if (!token) return rejectWithValue();
-    token.set(token);
+    if (!token) return rejectWithValue('Token Error');
+   
     try {
-      const result = await contactsApi.currentUser();
-      return result;
+      const result = await contactsApi.currentUser(token);
+     return result;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return  rejectWithValue(error.message);
     }
   },
 );

@@ -7,7 +7,11 @@ import Loader from '../../helpers/Loader/Loader';
 import PublicRoute from '../../routes/PublicRoute';
 import PrivateRoute from '../../routes/PrivataRoute';
 import { useSelector, useDispatch } from 'react-redux';
-import { getIsAuth } from '../../redux/auth/auth-selector';
+import {
+  getIsAuth,
+  getToken,
+  getIsFetchCurrentUser,
+} from '../../redux/auth/auth-selector';
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
 
@@ -15,7 +19,7 @@ const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage.js' /* webpackChunkName: "homePage" */),
 );
 
-const Phonebook = lazy(() => 
+const Phonebook = lazy(() =>
   import('../../pages/Phonebook/Phonebook' /* webpackChunkName: "phonebook" */),
 );
 
@@ -33,35 +37,45 @@ const Registration = lazy(() =>
 export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuth);
+  const token = useSelector(getToken);
+  const isFetchCurrentUser = useSelector(getIsFetchCurrentUser);
 
   useEffect(() => {
-    dispatch(currentUser());
+    if (token) {
+      dispatch(currentUser());
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
+
 
   return (
     <div className="App">
       <AppBar />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<PublicRoute isAuth={isAuth} component={HomePage} />}
-          />
-          <Route
-            path="/contacts"
-            element={<PrivateRoute isAuth={isAuth} component={Phonebook} />}
-          />
-          <Route
-            path="/login"
-            element={<PublicRoute isAuth={isAuth} component={Login} />}
-          />
-          <Route
-            path="/registration"
-            element={<PublicRoute isAuth={isAuth} component={Registration} />}
-          />
-        </Routes>
-      </Suspense>
+      {isFetchCurrentUser ? (
+        <Loader />
+      ) : (
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={<PublicRoute isAuth={isAuth} component={HomePage} />}
+            />
+            <Route
+              path="/contacts"
+              element={<PrivateRoute isAuth={isAuth} component={Phonebook} />}
+            />
+            <Route
+              path="/login"
+              element={<PublicRoute isAuth={isAuth} component={Login} />}
+            />
+            <Route
+              path="/registration"
+              element={<PublicRoute isAuth={isAuth} component={Registration} />}
+            />
+          </Routes>
+        </Suspense>
+      )}
     </div>
   );
 }

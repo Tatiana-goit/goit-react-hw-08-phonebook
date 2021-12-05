@@ -7,6 +7,7 @@ const initialState = {
   error: null,
   isLoading: false,
   isAuth: false,
+  isFetchCurrentUser: false,
 };
 
 const authSlice = createSlice({
@@ -55,17 +56,20 @@ const authSlice = createSlice({
       user: action.payload,
       isLoading: false,
       isAuth: true,
+      isFetchCurrentUser: false,
     }),
     [currentUser.pending]: state => ({
       ...state,
       isLoading: true,
       error: null,
+      isFetchCurrentUser: true,
     }),
     [currentUser.rejected]: (state, action) => ({
       ...state,
       error: action.payload,
       isLoading: false,
       isAuth: false,
+      isFetchCurrentUser: false,
     }),
 
     [logout.fulfilled]: state => ({
