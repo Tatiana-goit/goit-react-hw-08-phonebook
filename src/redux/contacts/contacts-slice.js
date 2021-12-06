@@ -13,8 +13,7 @@ const contactSlice = createSlice({
       ...state,
       contactItem: action.payload,
       loading: false,
-      error: null,
-    }),
+      }),
     [fetchContacts.pending]: state => ({
       ...state,
       loading: true,
@@ -30,8 +29,7 @@ const contactSlice = createSlice({
       ...state,
       contactItem: [...state.contactItem, action.payload],
       loading: false,
-      error: null,
-    }),
+     }),
     [addContact.pending]: state => ({
       ...state,
       loading: true,
@@ -47,8 +45,7 @@ const contactSlice = createSlice({
       ...state,
       contactItem: state.contactItem.filter(({ id }) => id !== action.payload),
       loading: false,
-      error: null,
-    }),
+     }),
     [deleteContact.pending]: state => ({
       ...state,
       loading: true,

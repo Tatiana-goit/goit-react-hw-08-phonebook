@@ -57,7 +57,7 @@ export default function LoginForm() {
           onChange={handleChange}
         />
 
-        <button type="submit">log in</button>
+        <button type="submit" >log in</button>
         <p className={s.text}>
           Don't have an account? 
           <NavLink to="/registration" className={s.link}>

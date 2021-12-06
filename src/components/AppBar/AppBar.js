@@ -16,41 +16,9 @@ export default function AppBar() {
   return (
     <>
       <header className={s.header}>
-      <Navigation/>
-        {!isFetchCurrentUser ? (isAuth ? (<UserMenu />) : (<AuthNav />)) : <Loader/> }
+        {isFetchCurrentUser ? <Loader /> : <Navigation />}
+        {isFetchCurrentUser ? <Loader /> : isAuth ? <UserMenu /> : <AuthNav />}
       </header>
     </>
   );
-
-  
-  //   return (
-  //   <header className={s.header}>
-  //     <Navigation />
-  //      {isAuth ? <UserMenu /> : <AuthNav />}
-  //   </header>
-  // );
-
-
-  // return (
-  //   <header className={s.header}>
-  //     <Navigation/>
-  //     {isFetchCurrentUser ? <Loader/> :( {isAuth ? <UserMenu/> : <AuthNav/>})}
-  //   </header>
-  // );
-
-  // return (
-  //   <header className={s.header}>
-  //     {isFetchCurrentUser ? (<Loader />) :
-  //     (<Navigation />
-  //      (isAuth ? <UserMenu /> : <AuthNav />)}
-  //   </header>
-  // );
-
-  // return (
-  //   <header className={s.header}>
-  //   <Navigation />
-  //   {isFetchCurrentUser ? (<Loader/>) :  isAuth ? <UserMenu /> : <AuthNav />}
-
-  //   </header>
-  // );
 }

@@ -77,7 +77,6 @@ const authSlice = createSlice({
       token: '',
       isLoading: false,
       isAuth: false,
-      error: null,
     }),
     [logout.pending]: state => ({
       ...state,
