@@ -15,6 +15,7 @@ import {
 import { useEffect } from 'react';
 import { currentUser } from '../../redux/auth/auth-operation';
 
+
 const HomePage = lazy(() =>
   import('../../pages/HomePage/HomePage.js' /* webpackChunkName: "homePage" */),
 );
